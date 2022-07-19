@@ -2,12 +2,14 @@ import { sequelize } from "../database/index";
 import AdminJS from "adminjs";
 import AdminJSExpress from "@adminjs/express";
 import AdminJSSequelize from "@adminjs/sequelize";
+import { adminJsResouces } from "./resources";
 
 AdminJS.registerAdapter(AdminJSSequelize);
 
 export const adminJs = new AdminJS({
   databases: [sequelize],
   rootPath: "/admin",
+  resources: adminJsResouces,
   branding: {
     companyName: "OneBitFlix",
     logo: "/logo.jpg",
